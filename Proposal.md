@@ -8,15 +8,19 @@ This program will analyze an image of the user's choice and output valuable info
 
 ## Features
 - Feature 1: Program will create a color sample block visual based off of five randomized samples from the image's pixels. 
-	- Short explaination of how it will be executed.
+	- I will use random to randomly select 5 pixels from the image and display their colors in a viual format like colored block swatches.
+   
 - Feature 2: Program will analyze pixels for their RGBs and convert five randomized samples from the image's pixels into color names.
-	- Short explaination of how it will be executed.
+	- I will see if there is a color naming library/database to reference when matching RGB to a color name.
+   
 - Feature 3: Program will take the color name and will provide color psychology information based on the color listed.
-	- Short explaination of how it will be executed.
+	- I will find resources to help associate specific color names with psychological effects.
+   
 - Feature 4: Program will output the image ratio
-   	- Short explaination of how it will be executed.
+   	- To find an image ratio I will divide the image width by image height.
+   	  
 - Feature 5: PRogram will output the image resolution.
-  	- Short explaination of how it will be executed.
+  	- To find the image resolution I will show the width and heigh of the image in pixels.
 
 ## Challenges
 - I will need to research how to convert RGB to a color name.
@@ -40,7 +44,7 @@ Minimal Viable Outcome:
 
 - Week 2
   1. Goal 1: Create the randomized visual color blocks based on the image's 5 randomized pixel samples.
-  2. Goal 2: Code the color conversion from RGB to recognizable color names, assign colors and pschological affects.
+  2. Goal 2: Code the color conversion from RGB to recognizable color names, assign colors and pschological effects.
 
 - Week 3 (Final)
   1. Goal 1: Code the image ratio and resolution.
