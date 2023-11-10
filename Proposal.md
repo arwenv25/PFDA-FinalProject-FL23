@@ -1,4 +1,4 @@
-# Image Information
+# Image Insights
 
 ## Repository Link
 https://github.com/arwenv25/PFDA-FinalProject-FL23.git
