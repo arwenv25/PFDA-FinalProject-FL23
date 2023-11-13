@@ -1,49 +1,68 @@
 from PIL import Image
 
 class Color_Profile:
+
     def __init__(self):
-        # initialize color profile attributes here
-    def open_image_color(self):
-        # implement code to open image
-    def five_randomized_pixels():
-        # implement code to iterate through each pixel of the image 
-        # and randomly pick 5 to display
-    def convert_rgb():
-        # implement code to convert rgb to recognizable color name
-    def color_psychology
-        # implement code to convert color name to color psychology
+        self.image = Image
+
+    def open_image_color(self, image):
+        try:
+            self.image = Image.open(self.image)
+            self.image.show()
+            return self.image
+        except FileNotFoundError:
+            print("Image file not  found.")
+
+    def five_randomized_pixels(self, image):
+        width, height = image.size
+        pixels = []
+        for _ in range(5):
+            x = random.randint(0, width- 1)
+            y = random.randint(0, height- 1)
+            pixel = image.getpixel((x,y,))
+            pixels.append(pixel)
+        return pixels
+
+    def convert_rgb(self, rgb):
+        color_name = webcolors.rgb_to_name(rgb)
+        return color_name
+
+    def color_psychology(self, color_name):
+        psychological_effect = get_psychologigal_effect(color_name)
+        return psychological_effect
+
 
 class Image_Info:
-    def __init__(self, image_path):
-        self.image_path = image_path
-        # Initialize image info attributes here
 
-    def open_image_info(self):
+    def __init__(self):
+        self.image = Image
+
+    def open_image_color(self, image):
         try:
-            image = Image.open(self.image_path)
-            return image
+            self.image = Image.open(self.image)
+            self.image.show()
+            return self.image
         except FileNotFoundError:
-            print("Image file not found")
-        # implement code to open image
+            print("Image file not  found.")
 
-    def calculate_ratio
+    def calculate_ratio():
         image = self.open_image_info()
         if image:
             width, height = image.size
             ratio = width/height
             return ratio
-        # implement code to calculate the image's ratio
 
-    def calculate_resolution
+    def calculate_resolution():
         image = self.open_image_info()
         if image:
             width, height = image.size
-            resolution f"{width}x{height} pixels"
+            resolution = f"{width}x{height} pixels"
             return resolution
-        # implement code to calculate the image's resolution
 
-def two_option_menu():
-    print("Welcome to the Image Insights Menue")
+
+def main():
+
+    print("Welcome to the Image Insights Menu")
     print("Select 1 to analyze Color Profile")
     print("Select 2 to analyze Image Information")
 
@@ -52,17 +71,18 @@ def two_option_menu():
     if choice == "1":
         print("You chose analyze Color Profile!")
         # call respective code here from class above
+        color_profile = Color_Profile()
+        color_profile.open_image_color(image)
+    
+
     elif choice == "2":
         print("You chose analyze Image Information")
         # call respective code here from class above
+        image_info = Image_Info()
+        image_info.image_info()
+
     else:
         print("Invalid choice. Please choose either '1' or '2.'")
 
-
-
-two_option_menu()
-
 if __name__ == "__main__":
     main()
-
-#Menu
