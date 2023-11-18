@@ -1,35 +1,7 @@
 from PIL import Image
 import os
 
-class Color_Profile:
-    def __init__(self):
-        self.image = Image
 
-    def open_image_color(self, image):
-        try:
-            self.image = Image.open(self.image)
-            self.image.show()
-            return self.image
-        except FileNotFoundError:
-            print("Image file not found.")
-
-    def five_randomized_pixels(self, image):
-        width, height = image.size
-        pixels = []
-        for _ in range(5):
-            x = random.randint(0, width-1)
-            y = random.randint(0, height-1)
-            pixel = image.getpixel((x, y,))
-            pixels.append(pixel)
-        return pixels
-
-    def convert_rgb(self, rgb):
-        color_name = webcolors.rgb_to_name(rgb)
-        return color_name
-
-    def color_psychology(self, color_name):
-        psychological_effect = get_psychological_effect(color_name)
-        return psychological_effect
 
 def get_image_resolution(image):
     width, height = image.size
