@@ -54,7 +54,8 @@ def menu():
         resolution = get_image_resolution(image)
         ratio = get_image_ratio(image)
         print("Image resolution:", resolution)
-    elif choice == "3":
+    elif choice != 1 or 2:
         print("Invalid Choice. Please choose either 1 or 2")
+
         
 menu()
