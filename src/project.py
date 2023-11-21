@@ -18,8 +18,13 @@ def convert_rgb(colors):
     color_names = []
     for color in colors:
         rgb = color.astype(int)
-        closest_color = webcolors.rgb_to_name(rgb)
-        color_names.append(closest_color)
+        try:
+            closest_color = webcolors.rgb_to_name(rgb)
+            color_names.append(closest_color)
+            print("RGB values:", rgb)
+            print("Color name:", closest_color)
+        except ValueError:
+            print("No matching color in CSS3 for RGB values:", rgb)
     return color_names
 
 def create_color_samples(colors):
@@ -35,6 +40,7 @@ def analyze_image(image_filename):
     try:
         image = Image.open(image_path)
         dominant_colors = most_dominant_colors(image)
+        convert_rgb(dominant_colors)
         create_color_samples(dominant_colors)
     except FileNotFoundError:
         print("Image file not found. Please make sure the file exists.")
@@ -57,16 +63,15 @@ def menu():
     if choice == "1":
         image_filename = input("Enter the image filename: ")
         analyze_image(image_filename)
-        rgb_values = analyze_image(image_path)
-        print("RGB Values:", rgb_values)
     elif choice == "2":
         image_filename = input("Enter the image filename: ")
         image = Image.open(image_filename)
         resolution = get_image_resolution(image)
         ratio = get_image_ratio(image)
         print("Image resolution:", resolution)
+        print("Image ratio:", ratio)
     elif choice != 1 or 2:
         print("Invalid Choice. Please choose either 1 or 2")
 
-        
+
 menu()
