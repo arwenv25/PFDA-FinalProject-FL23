@@ -3,6 +3,7 @@ import os
 import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+import webcolors
 
 def most_dominant_colors(img):
     resized_img = img.resize((100, 100))
@@ -12,6 +13,14 @@ def most_dominant_colors(img):
     kmeans.fit(pixel_colors)
     dominant_colors = kmeans.cluster_centers_.astype(int)
     return dominant_colors
+
+def convert_rgb(colors):
+    color_names = []
+    for color in colors:
+        rgb = color.astype(int)
+        closest_color = webcolors.rgb_to_name(rgb)
+        color_names.append(closest_color)
+    return color_names
 
 def create_color_samples(colors):
     fig, axs = plt.subplots(1, 5, figsize=(12, 2))
@@ -48,6 +57,8 @@ def menu():
     if choice == "1":
         image_filename = input("Enter the image filename: ")
         analyze_image(image_filename)
+        rgb_values = analyze_image(image_path)
+        print("RGB Values:", rgb_values)
     elif choice == "2":
         image_filename = input("Enter the image filename: ")
         image = Image.open(image_filename)
