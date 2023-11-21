@@ -34,8 +34,8 @@ def convert_rgb(colors):
         try:
             closest_color = convert_rgb_to_names(rgb)
             color_names.append(closest_color)
-            print("RGB values:", rgb)
-            print("Color name:", closest_color)
+            print("RGB values:", rgb, "-", "Color Name: ", closest_color)
+            #print("Color name:", closest_color)
         except ValueError:
             print("No matching color in CSS3 for RGB values:", rgb)
     return color_names
