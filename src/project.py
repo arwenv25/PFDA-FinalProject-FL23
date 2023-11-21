@@ -4,6 +4,19 @@ import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import webcolors
+from scipy.spatial import KDTree
+
+def convert_rgb_to_names(rgb_tuple):
+    css3_db = webcolors.CSS3_NAMES_TO_HEX
+    names = []
+    rgb_values = []
+    for color_name, color_hex in css3_db.items():
+        names.append(color_name)
+        rgb_values.append(webcolors.hex_to_rgb(color_hex))
+    
+    kdt_db = KDTree(rgb_values)
+    distance, index = kdt_db.query(rgb_tuple)
+    return names[index]
 
 def most_dominant_colors(img):
     resized_img = img.resize((100, 100))
@@ -19,7 +32,7 @@ def convert_rgb(colors):
     for color in colors:
         rgb = color.astype(int)
         try:
-            closest_color = webcolors.rgb_to_name(rgb)
+            closest_color = convert_rgb_to_names(rgb)
             color_names.append(closest_color)
             print("RGB values:", rgb)
             print("Color name:", closest_color)
@@ -55,14 +68,16 @@ def get_image_ratio(image):
     return ratio
 
 def menu():
-    print("Menu:")
-    print("1. Color Profile")
-    print("2. Image Info")
+    print("Welcome to the Image Insights Menu")
+    print("Select 1 to analyze Color Profile")
+    print("Select 2 to analyze Image Information")
+
     choice = input("Enter your choice: ")
 
     if choice == "1":
         image_filename = input("Enter the image filename: ")
         analyze_image(image_filename)
+        
     elif choice == "2":
         image_filename = input("Enter the image filename: ")
         image = Image.open(image_filename)
@@ -72,6 +87,5 @@ def menu():
         print("Image ratio:", ratio)
     elif choice != 1 or 2:
         print("Invalid Choice. Please choose either 1 or 2")
-
 
 menu()
