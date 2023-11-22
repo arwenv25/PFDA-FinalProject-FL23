@@ -35,7 +35,6 @@ def convert_rgb(colors):
             closest_color = convert_rgb_to_names(rgb)
             color_names.append(closest_color)
             print("RGB values:", rgb, "-", "Color Name: ", closest_color)
-            #print("Color name:", closest_color)
         except ValueError:
             print("No matching color in CSS3 for RGB values:", rgb)
     return color_names
@@ -67,7 +66,7 @@ def get_image_ratio(image):
     ratio = width / height
     return ratio
 
-def menu():
+def main():
     print("Welcome to the Image Insights Menu")
     print("Select 1 to analyze Color Profile")
     print("Select 2 to analyze Image Information")
@@ -88,4 +87,6 @@ def menu():
     elif choice != 1 or 2:
         print("Invalid Choice. Please choose either 1 or 2")
 
-menu()
+
+if __name__ == "__main__":
+    main()
