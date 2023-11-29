@@ -1,4 +1,4 @@
-# PROJECT TITLE
+# Image Insights
 
 ## Demo
 Demo Video: <URL>
